@@ -1,20 +1,21 @@
+import pygame
+from settings import Settings
 import sys 
 
-import os
 
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
-import pygame
 
 #the class being used to manage the entire game itself
-class invaders_game:
+class Invaders_Game:
 
 #method used to turn on the game and manage assests
     def __init__(self):
         pygame.init()
+        self.settings = Settings()
 
         #used "pygame.display.set_mode" to make a display window, use the tuple "(1600, 900) for screen dimension", then assigned everything to "self.screen" attribute
-        self.screen = pygame.display.set_mode((800, 800))
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Invaders From Space!")
 
         #used to mod the background color
@@ -29,12 +30,12 @@ class invaders_game:
                     sys.exit()
 
             #recreate screen during each pass on the loop
-            self.screen.fill(self.bg_color)
+            self.screen.fill(self.settings.bg_color)
 
             #used to update and make the newest screen visible
             pygame.display.flip()
 
 #used to run Invaders From Space
 if __name__ == "__main__":
-    ai = invaders_game
+    ai = Invaders_Game
     ai.run_game
