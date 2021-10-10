@@ -1,0 +1,2 @@
+install pygame documentation(Mac, Windows, Linux, etc)
+https://www.pygame.org/wiki/GettingStarted
