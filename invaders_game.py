@@ -37,5 +37,5 @@ class Invaders_Game:
 
 #used to run Invaders From Space
 if __name__ == "__main__":
-    ai = Invaders_Game
-    ai.run_game
+    ai = Invaders_Game()
+    ai.run_game()
