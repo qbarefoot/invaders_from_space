@@ -7,6 +7,9 @@ class Space_Ship:
     def __init__(self, ai_game):
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
+        
+#player ship settings
+        self.spaceship_speed = 1.5        
 
 #load player ship image and get rect or "rectangles"
         self.image= pygame.image.load('images/playership.bmp')
@@ -17,10 +20,13 @@ class Space_Ship:
 
         #ship movement flag
         self.moving_right = False
+        self.moving_left = False
 
 #player ship position based on movement flag
     def update(self):
         if self.moving_right:
+            self.rect.x =+ 1
+        if self.moving_left:
             self.rect.x =+ 1
 
 #this will draw player ship at the current location

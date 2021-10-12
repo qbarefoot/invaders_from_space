@@ -41,9 +41,14 @@ class Invaders_Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
                         self.spaceship.moving_right = True
-                    elif event.type == pygame.KEYUP:
+                elif event.type == pygame.K_LEFT:
+                    self.spaceship.moving_left = True
+
+                elif event.type == pygame.KEYUP:
                         if event.key == pygame.K_RIGHT:
                             self.spaceship.moving_right = False
+                        elif event.key == pygame.K_LEFT:
+                            self.spaceship.moving_left = False
                     #allows player to move player ship to right
                         self.spaceship.rect.x =+ 1
 
