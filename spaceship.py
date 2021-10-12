@@ -9,7 +9,7 @@ class Space_Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
 #load player ship image and get rect or "rectangles"
-        self.image= pygame.image.load('images/spacecraft.bmp')
+        self.image= pygame.image.load('images/playership.bmp')
         self.rect =self.image.get_rect()
 
 #start player ship at middle-bottom of screen
