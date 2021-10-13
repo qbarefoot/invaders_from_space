@@ -1,3 +1,7 @@
+#used to hide pygame message in terminal
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+
 import pygame
 from settings import Settings
 import sys 
@@ -17,7 +21,7 @@ class Invaders_Game:
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption("Invaders From Space")
 
         self.spaceship = Space_Ship(self)
 
