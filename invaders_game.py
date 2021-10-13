@@ -33,25 +33,23 @@ class Invaders_Game:
 
 #used to respond to input from keyboard and mouse events 
     def _check_events(self):
-
             #event listener used to listen for controls to close the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
+                        self.spaceship.rect.x += 1
                         self.spaceship.moving_right = True
-                elif event.type == pygame.K_LEFT:
-                    self.spaceship.moving_left = True
+                    elif event.key == pygame.K_LEFT:
+                        self.spaceship.moving_left = True
 
                 elif event.type == pygame.KEYUP:
-                        if event.key == pygame.K_RIGHT:
-                            self.spaceship.moving_right = False
-                        elif event.key == pygame.K_LEFT:
-                            self.spaceship.moving_left = False
-                    #allows player to move player ship to right
-                        self.spaceship.rect.x =+ 1
-
+                    if event.key == pygame.K_RIGHT:
+                        self.spaceship.rect.x += 1
+                        self.spaceship.moving_right = False
+                    elif event.key == pygame.K_LEFT:
+                        self.spaceship.moving_left = False
 
 #updates and flip images on player screen
     def _update_screen(self):
