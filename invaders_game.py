@@ -66,6 +66,7 @@ class Invaders_Game:
             self._check_events()
             self.spaceship.update()
             self._update_screen()
+            self._update_aliens()
             self._update_missiles()
 
         #delete missile
@@ -109,7 +110,10 @@ class Invaders_Game:
     #missiles deleted, and positions updated
     def _update_missiles(self):
         self.missiles.update()
-        
+
+    #aliens positions updated    
+    def _update_aliens(self):
+        self.aliens.update()
 
     #updates and flip images on player screen
     def _update_screen(self):

@@ -8,6 +8,7 @@ class Alien(Sprite):
         def __init__(self, ai_game):
             super().__init__()
             self.screen = ai_game.screen
+            self.settings = ai_game.settings
 
             #load alien sprite and attributes
             self.image = pygame.image.load("images/alien_ufo.bmp")
@@ -19,3 +20,8 @@ class Alien(Sprite):
 
             #used to store horizonal position
             self.x = float(self.rect.x)
+
+        #move alien fleet right on screen
+        def update(self):
+            self.x += self.settings.alien_speed
+            self.rect.x = self.x
