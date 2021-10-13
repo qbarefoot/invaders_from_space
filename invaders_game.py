@@ -6,6 +6,7 @@ import pygame
 from settings import Settings
 import sys 
 from spaceship import Space_Ship
+from missile import Missile
 
 
 
@@ -24,6 +25,7 @@ class Invaders_Game:
         pygame.display.set_caption("Invaders From Space")
 
         self.spaceship = Space_Ship(self)
+        self.missiles = pygame.sprite.Group()
 
 
     #the main loop for the game
@@ -31,6 +33,7 @@ class Invaders_Game:
         while True:
             self._check_events()
             self.spaceship.update()
+            self.missiles.update()
             self._update_screen()
 
     #used to respond to input from keyboard and mouse events
@@ -50,6 +53,8 @@ class Invaders_Game:
             self.spaceship.moving_left = True
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_missile()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -57,10 +62,17 @@ class Invaders_Game:
         elif event.key == pygame.K_LEFT:
             self.spaceship.moving_left = False
 
+    #create missiles and add to the missiles group
+    def _fire_missile(self):
+        new_missile = Missile(self)
+        self.missiles.add(new_missile)
+
     #updates and flip images on player screen
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
         self.spaceship.blitme()
+        for missile in self.missiles.sprites():
+            missile.draw_missile()
 
         pygame.display.flip()
 
