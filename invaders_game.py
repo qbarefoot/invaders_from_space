@@ -7,6 +7,7 @@ from settings import Settings
 import sys 
 from spaceship import Space_Ship
 from missile import Missile
+from alien import Alien
 
 
 
@@ -26,6 +27,14 @@ class Invaders_Game:
 
         self.spaceship = Space_Ship(self)
         self.missiles = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
+
+    #used to spawn aliens
+    def _create_fleet(self):
+        alien = Alien(self)
+        self.aliens.add(alien)
 
 
     #the main loop for the game
@@ -85,6 +94,7 @@ class Invaders_Game:
         self.spaceship.blitme()
         for missile in self.missiles.sprites():
             missile.draw_missile()
+        self.aliens.draw(self.screen)
 
         pygame.display.flip()
 
