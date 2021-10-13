@@ -6,8 +6,8 @@ class Space_Ship:
 #initalize ship and the starting point on screen
     def __init__(self, ai_game):
         self.screen = ai_game.screen
-        self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
+        self.settings = ai_game.settings
         
 #player ship settings
         self.spaceship_speed = 1.5        
@@ -28,12 +28,13 @@ class Space_Ship:
 
 #player ship position based on movement flag
     def update(self):
-        if self.moving_right:
-            self.rect.x += 1
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.rect.x += self.settings.spaceship_speed
+        if self.moving_left and self.rect.left > 0:
+            self.rect.x -= self.settings.spaceship_speed 
 
-        if self.moving_left:
-            self.rect.x -= 1
-
+#rect object updated from self.x
+            # self.rect.x = self.x
 
 
 #this will draw player ship at the current location
