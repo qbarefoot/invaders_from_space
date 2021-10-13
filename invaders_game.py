@@ -33,8 +33,14 @@ class Invaders_Game:
         while True:
             self._check_events()
             self.spaceship.update()
-            self.missiles.update()
             self._update_screen()
+            self._update_missiles()
+
+        #delete missile
+            for missile in self.missiles.copy():
+                if missile.rect.bottom <= 0:
+                    self.missiles.remove(missile)
+            print(len(self.missiles))
 
     #used to respond to input from keyboard and mouse events
     def _check_events(self):
@@ -64,8 +70,14 @@ class Invaders_Game:
 
     #create missiles and add to the missiles group
     def _fire_missile(self):
-        new_missile = Missile(self)
-        self.missiles.add(new_missile)
+        if len(self.missiles) < self.settings.missiles_allowed:
+            new_missile = Missile(self)
+            self.missiles.add(new_missile)
+
+    #missiles deleted, and positions updated
+    def _update_missiles(self):
+        self.missiles.update()
+        
 
     #updates and flip images on player screen
     def _update_screen(self):

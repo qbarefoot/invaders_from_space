@@ -1,3 +1,5 @@
+
+
 #used to store and change settings for game
 class Settings:
 
@@ -10,8 +12,9 @@ class Settings:
         self.spaceship_speed = 1.5
 
         #missile settings
-        self.missile_speed = 1.0
+        self.missile_speed = 1
         self.missile_width = 3
         self.missile_height = 15
         self.missile_color = (60, 60, 60)
+        self.missiles_allowed = 3
 
