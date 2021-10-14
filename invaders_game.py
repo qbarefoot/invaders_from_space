@@ -14,7 +14,7 @@ from alien import Alien
 
 #the class being used to manage the entire game itself
 class Invaders_Game:
-    
+
     def __init__(self):
         pygame.init()
         self.settings = Settings()
@@ -79,6 +79,18 @@ class Invaders_Game:
         for missile in self.missiles.copy():
             if missile.rect.bottom <= 0:
                 self.missiles.remove(missile)
+
+        self._check_missile_alien_collisions()
+
+    #used to check missile and alien collisions
+    def _check_missile_alien_collisions(self):
+        collisions = pygame.sprite.groupcollide(
+            self.missiles, self.aliens, True, True)
+            
+        #used to get rid of old missiles and create new fleet
+        if not self.aliens:
+            self.missiles.empty()
+            self._create_fleet()
 
     #update the alien positions and fleet
     def _update_aliens(self):
