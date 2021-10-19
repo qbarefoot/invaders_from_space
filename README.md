@@ -7,3 +7,5 @@ My first time using Pygame to create a clone of the classic "Space Invader Genre
 spacebar - fire
 
 left and right arrows key - move 
+
+q - quit game
