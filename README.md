@@ -8,4 +8,4 @@ spacebar - fire
 
 left and right arrows key - move 
 
-q - quit game
+q - exit game and py window
