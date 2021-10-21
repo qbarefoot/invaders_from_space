@@ -86,7 +86,7 @@ class Invaders_Game:
     def _check_missile_alien_collisions(self):
         collisions = pygame.sprite.groupcollide(
             self.missiles, self.aliens, True, True)
-            
+
         #used to get rid of old missiles and create new fleet
         if not self.aliens:
             self.missiles.empty()
@@ -101,14 +101,14 @@ class Invaders_Game:
     def _create_fleet(self):
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
-        available_space_x = self.settings.screen_width - (2 * alien_width)
-        number_aliens_x = available_space_x // (2 * alien_width)
+        available_space_x = self.settings.screen_width - (4 * alien_width)
+        number_aliens_x = available_space_x // (4 * alien_width)
         
         #used to determine the number of aliens on that can be fit on screen
         spaceship_height = self.spaceship.rect.height
         available_space_y = (self.settings.screen_height -
                                 (3 * alien_height) - spaceship_height)
-        number_rows = available_space_y // (2 * alien_height)
+        number_rows = available_space_y // (4 * alien_height)
         
         # creates the entire alien force
         for row_number in range(number_rows):
