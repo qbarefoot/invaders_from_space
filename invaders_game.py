@@ -82,6 +82,11 @@ class Invaders_Game:
 
         self._check_missile_alien_collisions()
 
+        #remove missiles and spawn a new a fleet
+        if not self.aliens:
+                self.missiles.empty()
+                self._create_fleet()
+
     #used to check missile and alien collisions
     def _check_missile_alien_collisions(self):
         collisions = pygame.sprite.groupcollide(
