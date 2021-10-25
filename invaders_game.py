@@ -8,6 +8,8 @@ import sys
 from spaceship import Space_Ship
 from missile import Missile
 from alien import Alien
+from time import sleep
+from invader_stats import InvaderStats
 
 
 
@@ -80,12 +82,13 @@ class Invaders_Game:
             if missile.rect.bottom <= 0:
                 self.missiles.remove(missile)
 
-        self._check_missile_alien_collisions()
 
         #remove missiles and spawn a new a fleet
         if not self.aliens:
                 self.missiles.empty()
                 self._create_fleet()
+
+        self._check_missile_alien_collisions()
 
     #used to check missile and alien collisions
     def _check_missile_alien_collisions(self):
@@ -101,6 +104,10 @@ class Invaders_Game:
     def _update_aliens(self):
         self._check_fleet_edges()
         self.aliens.update()
+
+    #detect alien-player ship collisions
+        if pygame.sprite.spritecollideany(self.spaceship, self.aliens):
+            print("You've been hit!!!")
 
     #used to spawn aliens
     def _create_fleet(self):

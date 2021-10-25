@@ -10,6 +10,7 @@ class Settings:
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
         self.spaceship_speed = 1.5
+        self.spaceship_limit = 3
 
         #missile settings
         self.missile_speed = 2.0
@@ -20,7 +21,7 @@ class Settings:
 
         #alien settings
         self.alien_speed = 1.0
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 100
         self.fleet_direction = 1
         
 
