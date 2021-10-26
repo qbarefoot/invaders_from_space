@@ -3,12 +3,12 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 import pygame
-from settings import Settings
 import sys 
+from time import sleep
+from settings import Settings
 from spaceship import Space_Ship
 from missile import Missile
 from alien import Alien
-from time import sleep
 from invader_stats import InvaderStats
 
 
@@ -24,7 +24,10 @@ class Invaders_Game:
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption("Invaders Are Coming!!!")
+
+        #used to store game stats instance
+        self.stats = InvaderStats(self)
 
         self.spaceship = Space_Ship(self)
         self.missiles = pygame.sprite.Group()
@@ -105,9 +108,25 @@ class Invaders_Game:
         self._check_fleet_edges()
         self.aliens.update()
 
-    #detect alien-player ship collisions
+        #detect alien-player ship collisions
         if pygame.sprite.spritecollideany(self.spaceship, self.aliens):
-            print("You've been hit!!!")
+            self._spaceship_impact()
+
+    #reponse to ship impact by alien
+    def _spaceship_impact(self):
+        self.stats.spaceship_left -= 1
+
+        #missiles and aliens removed that remain
+        self.aliens.empty()
+        self.missiles.empty()
+
+        #new fleet created and player ship centered
+        self._create_fleet()
+        self.spaceship.center_spaceship()
+
+        #game paused
+        sleep(1.0)
+
 
     #used to spawn aliens
     def _create_fleet(self):

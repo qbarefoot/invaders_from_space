@@ -36,3 +36,8 @@ class Space_Ship:
     #this will draw player ship at the current location
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+    #center new ship on screen
+    def center_spaceship(self):
+        self.rect.middbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
