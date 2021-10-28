@@ -39,10 +39,12 @@ class Invaders_Game:
     def run_game(self):
         while True:
             self._check_events()
-            self.spaceship.update()
-            self._update_missiles()
-            self._update_aliens()
-            self._update_screen()
+
+            if self.stats.game_active:
+                self.spaceship.update()
+                self._update_missiles()
+                self._update_aliens()
+                self._update_screen()
 
     #control key and mouse responses
     def _check_events(self):
@@ -112,21 +114,36 @@ class Invaders_Game:
         if pygame.sprite.spritecollideany(self.spaceship, self.aliens):
             self._spaceship_impact()
 
+    # Look for aliens hitting the bottom of the screen.
+        self._check_aliens_bottom()
+
+    #in place to check when alien fleet reachs bottom of screen
+    def _check_aliens_bottom(self):
+        screen_rect = self.screen.get_rect()
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom >= screen_rect.bottom:
+                
+                #used to reverify if ship is hit
+                self._spaceship_impact()
+                break
+
     #reponse to ship impact by alien
     def _spaceship_impact(self):
-        self.stats.spaceship_left -= 1
+        if self.stats.spaceships_left > 0:
+            self.stats.spaceships_left -= 3
 
-        #missiles and aliens removed that remain
-        self.aliens.empty()
-        self.missiles.empty()
+            #missiles and aliens removed that remain
+            self.aliens.empty()
+            self.missiles.empty()
 
-        #new fleet created and player ship centered
-        self._create_fleet()
-        self.spaceship.center_spaceship()
+            #new fleet created and player ship centered
+            self._create_fleet()
+            self.spaceship.center_spaceship()
 
-        #game paused
-        sleep(1.0)
-
+            #game paused
+            sleep(1.0)
+        else:
+            self.stats.game_active = False
 
     #used to spawn aliens
     def _create_fleet(self):

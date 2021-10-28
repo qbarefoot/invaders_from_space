@@ -39,5 +39,5 @@ class Space_Ship:
 
     #center new ship on screen
     def center_spaceship(self):
-        self.rect.middbottom = self.screen_rect.midbottom
+        self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
