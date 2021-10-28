@@ -10,7 +10,7 @@ class Settings:
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
         self.spaceship_speed = 1.5
-        self.spaceship_limit = 1
+        self.spaceship_limit = 3
 
         #missile settings
         self.missile_speed = 2.0

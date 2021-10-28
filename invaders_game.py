@@ -10,6 +10,7 @@ from spaceship import Space_Ship
 from missile import Missile
 from alien import Alien
 from invader_stats import InvaderStats
+from button import Button
 
 
 
@@ -34,6 +35,9 @@ class Invaders_Game:
         self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
+
+        #create play button
+        self.play_button = Button(self, "Play")
 
     #start main game
     def run_game(self):

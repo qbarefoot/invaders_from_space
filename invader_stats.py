@@ -6,8 +6,8 @@ class InvaderStats:
         self.settings = ai_game.settings
         self.reset_stats()
 
-        #game will start in an active state.
-        self.game_active = True
+        #game will start in an inactive state.
+        self.game_active = False
 
     #used to keep track of initialized stats that change during gameplay
     def reset_stats(self):
