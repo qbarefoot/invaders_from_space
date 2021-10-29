@@ -20,6 +20,14 @@ class Button:
         #used to prep message only once
         self._prep_msg(msg)
 
+    #turn msg into a rendered image and centered "Play" on button"
+    def _prep_msg(self, msg):
+        self.msg_image = self.font.render(msg, True, self.text_color,
+                self.button_color)
+        self.msg_image_rect = self.msg_image.get_rect()
+        self.msg_image_rect.center = self.rect.center
+
+
     #used to draw the "start button" and "message"
     def draw_button(self):
         self.screen.fill(self.button_color, self.rect)

@@ -48,7 +48,8 @@ class Invaders_Game:
                 self.spaceship.update()
                 self._update_missiles()
                 self._update_aliens()
-                self._update_screen()
+
+            self._update_screen()
 
     #control key and mouse responses
     def _check_events(self):
@@ -196,6 +197,10 @@ class Invaders_Game:
         for missile in self.missiles.sprites():
             missile.draw_missile()
         self.aliens.draw(self.screen)
+    
+        #will draw the play button when game is inactive
+        if not self.stats.game_active:
+            self.play_button.draw_button()
 
         pygame.display.flip()
 
