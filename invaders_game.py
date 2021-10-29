@@ -64,10 +64,19 @@ class Invaders_Game:
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
 
-    #click "Play" button to start new game
+    #click "Play" button to start new game and reset stats
     def _check_play_button(self, mouse_pos):
         if self.play_button.rect.collidepoint(mouse_pos):
+            self.stats.reset_stats()
             self.stats.game_active = True
+
+            #discard remaining aliens and missiles
+            self.aliens.empty()
+            self.missiles.empty()
+
+            #create new aliens and center player
+            self._create_fleet()
+            self.spaceship.center_spaceship()
 
     #response to key down
     def _check_keydown_events(self, event):
