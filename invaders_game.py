@@ -71,6 +71,9 @@ class Invaders_Game:
             self.stats.reset_stats()
             self.stats.game_active = True
 
+            #mouse curser not visible
+            pygame.mouse.set_visible(False)
+
             #discard remaining aliens and missiles
             self.aliens.empty()
             self.missiles.empty()
