@@ -68,11 +68,12 @@ class Invaders_Game:
     def _check_play_button(self, mouse_pos):
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            self.settings.initialize_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active = True
 
-            #mouse curser not visible
-            pygame.mouse.set_visible(False)
+            #mouse cursor not visible
+            pygame.mouse.set_visible(True)
 
             #discard remaining aliens and missiles
             self.aliens.empty()
@@ -130,6 +131,7 @@ class Invaders_Game:
         if not self.aliens:
             self.missiles.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     #update the alien positions and fleet
     def _update_aliens(self):

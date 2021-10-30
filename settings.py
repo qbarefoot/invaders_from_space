@@ -23,5 +23,23 @@ class Settings:
         self.alien_speed = 1.0
         self.fleet_drop_speed = 50
         self.fleet_direction = 1
-        
 
+        #speed up game after new fleet appears
+        self.speedup_scale = 2.0
+
+        self.initialize_dynamic_settings()
+
+    #init settings that continue to change with each new level
+    def initialize_dynamic_settings(self):
+        self.spaceship_speed = 1.5
+        self.missile_speed = 3.0
+        self.alien_speed = 1.0
+
+        #fleet_direction of 1 indicates the fleet is going right
+        self.fleet_direction = 1
+
+    #the speed settings 
+    def increase_speed(self):
+        self.spaceship_speed *= self.speedup_scale
+        self.missile_speed *= self.speedup_scale
+        self.alien_speed *= self.speedup_scale
