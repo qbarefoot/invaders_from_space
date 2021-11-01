@@ -16,7 +16,7 @@ class Settings:
         self.missile_speed = 2.0
         self.missile_width = 10
         self.missile_height = 15
-        self.missile_color = (60, 60, 60)
+        self.missile_color = (80, 80, 80)
         self.missiles_allowed = 3
 
         #alien settings
@@ -25,7 +25,7 @@ class Settings:
         self.fleet_direction = 1
 
         #speed up game after new fleet appears
-        self.speedup_scale = 2.0
+        self.speedup_scale = 1.5
 
         self.initialize_dynamic_settings()
 

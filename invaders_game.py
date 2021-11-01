@@ -1,16 +1,25 @@
-#used to hide pygame message in terminal
 import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 import pygame
+
 import sys 
+
 from time import sleep
+
 from settings import Settings
+
 from spaceship import Space_Ship
+
 from missile import Missile
+
 from alien import Alien
+
 from invader_stats import InvaderStats
+
 from button import Button
+
+#used to hide pygame message in terminal
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 
 
@@ -142,7 +151,7 @@ class Invaders_Game:
         if pygame.sprite.spritecollideany(self.spaceship, self.aliens):
             self._spaceship_impact()
 
-    # Look for aliens hitting the bottom of the screen.
+        # Look for aliens hitting the bottom of the screen.
         self._check_aliens_bottom()
 
     #in place to check when alien fleet reachs bottom of screen
@@ -183,10 +192,10 @@ class Invaders_Game:
         #used to determine the number of aliens on that can be fit on screen
         spaceship_height = self.spaceship.rect.height
         available_space_y = (self.settings.screen_height -
-                                (3 * alien_height) - spaceship_height)
+            (3 * alien_height) - spaceship_height)
         number_rows = available_space_y // (4 * alien_height)
         
-        # creates the entire alien force
+        #creates the entire alien force
         for row_number in range(number_rows):
             for alien_number in range(number_aliens_x):
                 self._create_alien(alien_number, row_number)
