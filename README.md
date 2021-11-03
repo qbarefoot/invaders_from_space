@@ -6,6 +6,8 @@ My first time using Pygame to create a clone of the classic "Space Invader Genre
 
 The player will attempt to repel endless waves of alien fighters. The player has 3 lives for every session.
 
+![game_play](https://user-images.githubusercontent.com/81591201/140007824-d72c1406-50dd-4a14-9c10-f06773879958.png)
+
 Controls:
 
 click - "Play"
