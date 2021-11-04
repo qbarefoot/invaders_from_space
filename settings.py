@@ -25,7 +25,7 @@ class Settings:
         self.fleet_direction = 1
 
         #speed up game after new fleet appears
-        self.speedup_scale = 1.5
+        self.speedup_scale = 1.0
 
         self.initialize_dynamic_settings()
 
