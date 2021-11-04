@@ -10,10 +10,10 @@ The player will attempt to repel endless waves of alien fighters. The player has
 
 Controls:
 
-click - "Play"
+-> click - "Play"
 
-spacebar - fire missiles
+-> spacebar - fire missiles
 
-left and right arrows key - move player ship
+-> left and right arrows key - move player ship
 
-q - exit game and py window
+-> q - exit game and py window
