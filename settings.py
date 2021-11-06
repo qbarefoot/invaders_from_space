@@ -28,6 +28,8 @@ class Settings:
         self.speedup_scale = 1.0
 
         self.initialize_dynamic_settings()
+        
+        self.alien_points = 100
 
     #init settings that continue to change with each new level
     def initialize_dynamic_settings(self):

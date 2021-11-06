@@ -16,6 +16,8 @@ from alien import Alien
 
 from invader_stats import InvaderStats
 
+from player_score import Scoreboard
+
 from button import Button
 
 #used to hide pygame message in terminal
@@ -38,6 +40,7 @@ class Invaders_Game:
 
         #used to store game stats instance
         self.stats = InvaderStats(self)
+        self.sb = Scoreboard(self)
 
         self.spaceship = Space_Ship(self)
         self.missiles = pygame.sprite.Group()
@@ -136,6 +139,10 @@ class Invaders_Game:
         collisions = pygame.sprite.groupcollide(
             self.missiles, self.aliens, True, True)
 
+        if collisions:
+            self.stats.score += self.settings.alien_points
+            self.sb.prep_score()
+
         #used to get rid of old missiles and create new fleet
         if not self.aliens:
             self.missiles.empty()
@@ -229,6 +236,9 @@ class Invaders_Game:
         for missile in self.missiles.sprites():
             missile.draw_missile()
         self.aliens.draw(self.screen)
+
+        #score information displayed
+        self.sb.show_score()
     
         #will draw the play button when game is inactive
         if not self.stats.game_active:

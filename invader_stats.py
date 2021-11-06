@@ -12,4 +12,5 @@ class InvaderStats:
     #used to keep track of initialized stats that change during gameplay
     def reset_stats(self):
         self.spaceships_left = self.settings.spaceship_limit
+        self.score = 0
         
