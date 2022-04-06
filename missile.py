@@ -34,5 +34,4 @@ class Missile(Sprite):
     #draw missile on screen and initalize sound effect
     def draw_missile(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
-        mixer.init()
         missile_impact_sound.play()
