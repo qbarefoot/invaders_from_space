@@ -1,5 +1,11 @@
 import pygame
 from pygame.sprite import Sprite
+from pygame.locals import *
+from pygame import mixer
+
+#used to initalize mixer from pygame and implement missile firing sound effect
+mixer.init()
+missile_impact_sound = pygame.mixer.Sound("music/laser_fire.wav")
 
 #the class used to manage the ship's projectiles
 class Missile(Sprite):
@@ -18,14 +24,15 @@ class Missile(Sprite):
 
         #used to store missile position as a decimal
         self.y = float(self.rect.y)
+        
 
     #to move the missile towards top of screen and hit aliens
     def update(self):
         self.y -= self.settings.missile_speed
         self.rect.y = self.y
 
-    #draw missile on screen
+    #draw missile on screen and initalize sound effect
     def draw_missile(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
-
-
+        mixer.init()
+        missile_impact_sound.play()

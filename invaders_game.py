@@ -1,30 +1,18 @@
 import os
-
 import pygame
-
 import sys 
-
 from time import sleep
-
 from settings import Settings
-
 from spaceship import Space_Ship
-
 from missile import Missile
-
 from alien import Alien
-
 from invader_stats import InvaderStats
-
 from player_score import Scoreboard
-
 from button import Button
+
 
 #used to hide pygame message in terminal
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-
-
-
 
 #the class being used to manage the entire game itself
 class Invaders_Game:
