@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 from pygame.locals import *
 from pygame import mixer
 
-#used to initalize mixer from pygame and implement missile firing sound effect
+#used to initalize mixer from pygame and set missile_impact_sound to .wav file
 mixer.init()
 missile_impact_sound = pygame.mixer.Sound("music/laser_fire.wav")
 

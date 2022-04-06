@@ -9,6 +9,8 @@ from alien import Alien
 from invader_stats import InvaderStats
 from player_score import Scoreboard
 from button import Button
+from pygame.locals import *
+from pygame import mixer
 
 #the class being used to manage the entire game itself
 class Invaders_Game:
@@ -16,6 +18,11 @@ class Invaders_Game:
     def __init__(self):
         pygame.init()
         self.settings = Settings()
+
+#used to initalize mixer from pygame and start background music when window opens
+        mixer.init()
+        mixer.music.load("music/background_music.wav")
+        mixer.music.play(-1)
 
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
