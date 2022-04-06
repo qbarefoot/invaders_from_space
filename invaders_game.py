@@ -10,10 +10,6 @@ from invader_stats import InvaderStats
 from player_score import Scoreboard
 from button import Button
 
-
-#used to hide pygame message in terminal
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-
 #the class being used to manage the entire game itself
 class Invaders_Game:
 
