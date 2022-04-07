@@ -1,5 +1,3 @@
-
-
 #used to store and change settings for game
 class Settings:
 

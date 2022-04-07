@@ -12,6 +12,7 @@ from button import Button
 from pygame.locals import *
 from pygame import mixer
 
+
 #the class being used to manage the entire game itself
 class Invaders_Game:
 
@@ -76,7 +77,7 @@ class Invaders_Game:
             self.stats.game_active = True
 
             #mouse cursor not visible
-            pygame.mouse.set_visible(True)
+            pygame.mouse.set_visible(0)
 
             #discard remaining aliens and missiles
             self.aliens.empty()

@@ -13,4 +13,3 @@ class InvaderStats:
     def reset_stats(self):
         self.spaceships_left = self.settings.spaceship_limit
         self.score = 0
-        
