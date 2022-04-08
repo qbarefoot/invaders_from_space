@@ -11,6 +11,7 @@ from player_score import Scoreboard
 from button import Button
 from pygame.locals import *
 from pygame import mixer
+player_impact_sound = pygame.mixer.Sound("music/player_explosion.wav")
 
 #the class being used to manage the entire game itself
 class Invaders_Game:
@@ -76,7 +77,7 @@ class Invaders_Game:
             self.stats.game_active = True
 
             #mouse cursor not visible
-            pygame.mouse.set_visible(0)
+            pygame.mouse.set_visible(True)
 
             #discard remaining aliens and missiles
             self.aliens.empty()
@@ -129,7 +130,7 @@ class Invaders_Game:
     def _check_missile_alien_collisions(self):
         collisions = pygame.sprite.groupcollide(
             self.missiles, self.aliens, True, True)
-
+            
         if collisions:
             self.stats.score += self.settings.alien_points
             self.sb.prep_score()
@@ -176,6 +177,7 @@ class Invaders_Game:
             self.spaceship.center_spaceship()
 
             #game paused
+            player_impact_sound.play()
             sleep(1.0)
         else:
             self.stats.game_active = False
