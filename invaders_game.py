@@ -11,9 +11,8 @@ from player_score import Scoreboard
 from button import Button
 from pygame.locals import *
 from pygame import mixer
-#variables for player spaceship impact sound and alien explosion sound
+#variables for player spaceship impact sound
 player_impact_sound = pygame.mixer.Sound("music/player_explosion.wav")
-alien_explosion_sound = pygame.mixer.Sound("music/alien_explosion.wav")
 
 #the class being used to manage the entire game itself
 class Invaders_Game:
@@ -136,8 +135,6 @@ class Invaders_Game:
         if collisions:
             self.stats.score += self.settings.alien_points
             self.sb.prep_score()
-        if collisions:
-            alien_explosion_sound.play()
 
         #used to get rid of old missiles and create new fleet
         if not self.aliens:
